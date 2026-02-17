@@ -13,8 +13,7 @@
               margin-bottom: 50px;
               font-size: 32px;
               font-weight: 700;
-            "
-          >
+            ">
             What Our Students Say
           </h2>
         </div>
@@ -26,15 +25,13 @@
           id="testimonialCarousel"
           class="carousel slide"
           data-ride="carousel"
-          data-interval="5000"
-        >
+          data-interval="5000">
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li
               data-target="#testimonialCarousel"
               data-slide-to="0"
-              class="active"
-            ></li>
+              class="active"></li>
             <li data-target="#testimonialCarousel" data-slide-to="1"></li>
             <li data-target="#testimonialCarousel" data-slide-to="2"></li>
           </ol>
@@ -89,24 +86,16 @@
             class="left carousel-control"
             href="#testimonialCarousel"
             role="button"
-            data-slide="prev"
-          >
-            <span
-              class="glyphicon glyphicon-chevron-left"
-              aria-hidden="true"
-            ></span>
+            data-slide="prev">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
             <span class="sr-only">Previous</span>
           </a>
           <a
             class="right carousel-control"
             href="#testimonialCarousel"
             role="button"
-            data-slide="next"
-          >
-            <span
-              class="glyphicon glyphicon-chevron-right"
-              aria-hidden="true"
-            ></span>
+            data-slide="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
             <span class="sr-only">Next</span>
           </a>
         </div>

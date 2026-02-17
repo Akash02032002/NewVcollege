@@ -603,11 +603,11 @@ input:focus {
 }
 
 #mainSlider .carousel-control {
-	width: 45px;
-	height: 45px;
-	background: rgba(255, 193, 7, 0.9);
-	border: 2px solid #ffc107;
-	border-radius: 5px;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 193, 7, 0.85);
+	border: none;
+	border-radius: 50%;
 	background-image: none;
 	top: 50%;
 	transform: translateY(-50%);
@@ -617,24 +617,22 @@ input:focus {
 
 #mainSlider .carousel-control:hover {
 	background: #ffc107;
-	box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
 }
 
 #mainSlider .carousel-control.left {
-	left: 15px;
+	left: 12px;
 }
 
 #mainSlider .carousel-control.right {
-	right: 15px;
+	right: 12px;
 }
 
-#mainSlider .carousel-control .glyphicon {
-	font-size: 24px;
+#mainSlider .carousel-control .fa {
+	font-size: 18px;
 	color: #000;
-	font-weight: bold;
-	line-height: 41px;
-	top: 0;
-	margin-top: 0;
+	line-height: 40px;
+	display: block;
+	text-align: center;
 }
 
 #mainSlider .carousel-indicators {
@@ -1991,11 +1989,12 @@ input:focus {
 }
 
 #testimonialCarousel .carousel-control {
-	width: 45px;
-	height: 45px;
-	background: rgba(255, 193, 7, 0.9);
-	border: 2px solid #ffc107;
-	border-radius: 5px;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 193, 7, 0.85);
+	border: none;
+	border-radius: 50%;
+	background-image: none;
 	top: 50%;
 	transform: translateY(-50%);
 	opacity: 1;
@@ -2004,7 +2003,6 @@ input:focus {
 
 #testimonialCarousel .carousel-control:hover {
 	background: #ffc107;
-	box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5);
 }
 
 #testimonialCarousel .carousel-control.left {
@@ -2015,11 +2013,12 @@ input:focus {
 	right: -70px;
 }
 
-#testimonialCarousel .carousel-control .glyphicon {
-	font-size: 24px;
+#testimonialCarousel .carousel-control .fa {
+	font-size: 18px;
 	color: #000;
-	font-weight: bold;
-	line-height: 41px;
+	line-height: 40px;
+	display: block;
+	text-align: center;
 }
 
 #testimonialCarousel .carousel-indicators {
@@ -2055,9 +2054,9 @@ input:focus {
 		height: 38px;
 	}
 	
-	#testimonialCarousel .carousel-control .glyphicon {
-		font-size: 20px;
-		line-height: 34px;
+	#testimonialCarousel .carousel-control .fa {
+		font-size: 16px;
+		line-height: 38px;
 	}
 	
 	.single-testimonial p {
