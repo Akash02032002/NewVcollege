@@ -30,7 +30,7 @@ if(isset($_POST['register'])) {
                 ':email'=>$email,
                 ':password'=>$hashed_password
             ]);
-            $success = "Admin Registered Successfully!";
+            $success = "Student Registered Successfully!";
         }
     }
 }
