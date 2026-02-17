@@ -24,12 +24,10 @@
       <div class="row">
         <div class="col-md-2 col-sm-12 col-xs-8">
           <div class="logo">
-            <a href="/"
-              ><img
+            <a href="/"><img
                 style="width: 78px"
                 src="images/1748685319_top%20college%20logo.webp"
-                alt=""
-            /></a>
+                alt="" /></a>
           </div>
         </div>
 
@@ -41,51 +39,22 @@
                 <li>
                   <a
                     href="/"
-                    class="btn cl waves-effect waves-light"
-                    style="
-                      font-family: &quot;Montserrat&quot;, sans-serif;
-                      font-weight: 600;
-                      background: radial-gradient(
-                        circle,
-                        rgb(153 26 26) 15%,
-                        rgb(166 14 28) 44%,
-                        rgb(22 1 1) 98%
-                      );
-                      color: #ffff;
-                    "
-                  >
-                    Home</a
-                  >
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
+                    Home</a>
                 </li>
 
                 <li>
                   <a
                     href="#"
-                    class="btn cl waves-effect waves-light"
-                    style="
-                      font-family: &quot;Montserrat&quot;, sans-serif;
-                      font-weight: 600;
-                      background: linear-gradient(
-                        90deg,
-                        rgba(71, 45, 22, 1) 0%,
-                        rgba(212, 48, 4, 0.936186974789916) 50%,
-                        rgba(181, 5, 5, 1) 73%
-                      );
-                      color: #ffff;
-                    "
-                  >
-                    Student Portal</a
-                  >
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-gradient">
+                    Student Portal</a>
                   <ul>
                     <li>
                       <a href="register_student.php">
-                        Student Register</a
-                      >
+                        Student Register</a>
                     </li>
                     <li>
-                      <a href="login.php"
-                        >Stuednt Login</a
-                      >
+                      <a href="login.php">Stuednt Login</a>
                     </li>
                     <li><a href="/college-list"> Search College</a></li>
                     <li>
@@ -96,21 +65,8 @@
                 <li>
                   <a
                     href="#"
-                    class="btn cl waves-effect waves-light"
-                    style="
-                      font-family: &quot;Montserrat&quot;, sans-serif;
-                      font-weight: 600;
-                      background: radial-gradient(
-                        circle,
-                        rgb(153 26 26) 15%,
-                        rgb(166 14 28) 44%,
-                        rgb(22 1 1) 98%
-                      );
-                      color: #ffff;
-                    "
-                  >
-                    Consultant Portal</a
-                  >
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
+                    Consultant Portal</a>
                   <ul>
                     <li><a href="register_admin.php"> Consultant Registration</a></li>
                     <li><a href="login.php"> Consultant Login</a></li>
@@ -120,21 +76,8 @@
                 <li>
                   <a
                     href="/contact"
-                    class="btn cl waves-effect waves-light"
-                    style="
-                      font-family: &quot;Montserrat&quot;, sans-serif;
-                      font-weight: 600;
-                      background: radial-gradient(
-                        circle,
-                        rgb(153 26 26) 15%,
-                        rgb(166 14 28) 44%,
-                        rgb(22 1 1) 98%
-                      );
-                      color: #ffff;
-                    "
-                  >
-                    Contact Us</a
-                  >
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
+                    Contact Us</a>
                 </li>
               </ul>
             </nav>
@@ -147,9 +90,7 @@
               href="#"
               data-toggle="modal"
               data-target="#contactModal"
-              class="blink"
-              >Online Register</a
-            >
+              class="blink">Online Register</a>
           </div>
         </div>
       </div>

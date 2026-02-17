@@ -301,6 +301,20 @@ input:focus {
 	font-weight: 600;
 }
 
+.main-menu ul li a.nav-btn {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	color: #fff;
+}
+
+.main-menu ul li a.nav-btn-red {
+	background: radial-gradient(circle, rgb(153, 26, 26) 15%, rgb(166, 14, 28) 44%, rgb(22, 1, 1) 98%);
+}
+
+.main-menu ul li a.nav-btn-gradient {
+	background: linear-gradient(90deg, rgba(71, 45, 22, 1) 0%, rgba(212, 48, 4, 0.94) 50%, rgba(181, 5, 5, 1) 73%);
+}
+
 .main-menu ul li ul:hover .main-menu ul li a {
 	background: #fafafa;
 }
@@ -823,7 +837,9 @@ input:focus {
 .owl-carousel .owl-wrapper,
 .owl-carousel .owl-item {
 	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }
 
 
@@ -2170,7 +2186,7 @@ input:focus {
 }
 
 .testimonial-client-info {
-	display: inline-block;
+	display: block;
 	width: 20%;
 	float: left;
 }
@@ -2347,7 +2363,7 @@ input:focus {
 }
 
 .event-thumb {
-	display: inline-block;
+	display: block;
 	float: left;
 	width: 180px;
 	position: relative;
@@ -2665,7 +2681,6 @@ input:focus {
 
 .post-meta a i {
 	color: #f1c40f;
-	margin-right: ;
 	margin-right: 10px;
 }
 
@@ -2677,7 +2692,7 @@ input:focus {
 }
 
 .post-tags {
-	display: inline-block;
+	display: block;
 	float: right;
 }
 
@@ -2948,7 +2963,7 @@ h1.join-us-form-title {
 .contact-info-text span {
 	color: #999999;
 	font-size: 16px;
-	font-weight: ;
+	font-weight: normal;
 	display: inline-block;
 	width: 100%;
 }
@@ -3182,7 +3197,7 @@ h1.join-us-form-title {
 }
 
 .coruse-left-text {
-	display: inline-block;
+	display: block;
 	width: 25%;
 	float: left;
 }
@@ -3207,7 +3222,7 @@ h1.join-us-form-title {
 }
 
 .insturctor-img {
-	display: inline-block;
+	display: block;
 	float: left;
 	width: 60px;
 	height: 60px;
@@ -4128,7 +4143,7 @@ Home 3
 }
 
 .info-icon {
-	display: inline-block;
+	display: block;
 	height: 40px;
 	margin-right: 10px;
 	position: relative;
@@ -4333,7 +4348,7 @@ Home 5
 Home 6 
 ============================*/
 .hd-top-v2-sec {
-	background: #10cb7fnone repeat scroll 0 0;
+	background: #10cb7f none repeat scroll 0 0;
 	padding: 40px 0;
 	background-image: url(../images/hdbg.jpg);
 	background-repeat: no-repeat;
@@ -4470,13 +4485,13 @@ Home 6
 }
 
 .course-instructor-left {
-	display: inline-block;
+	display: block;
 	float: left;
 	width: 80%;
 }
 
 .course-instructor-right {
-	display: inline-block;
+	display: block;
 	text-align: right;
 	float: right;
 	margin-top: 23px;
@@ -4487,7 +4502,7 @@ Home 6
 	width: 30%;
 	border-radius: 100%;
 	float: left;
-	display: inline-block;
+	display: block;
 }
 
 .instructor-thumb img {
