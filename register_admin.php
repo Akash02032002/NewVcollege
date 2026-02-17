@@ -105,6 +105,10 @@ if(isset($_POST['register'])) {
         <div class="text-center mt-3">
             Already have an account? <a href="login.php">Login</a>
         </div>
+        
+        <div class="text-center mt-2">
+            <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house-door"></i> Home</a>
+        </div>
     </form>
     </div>
 </div>

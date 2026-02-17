@@ -131,8 +131,10 @@ if(isset($_POST['login'])) {
                     Don’t have an account? 
                     <a href="register_student.php">Register as Student</a><br>
                     <a href="register_admin.php">Register as Admin</a>
+                </div>                
+                <div class="text-center mt-2">
+                    <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house-door"></i> Home</a>
                 </div>
-
             </form>
         </div>
     </div>
