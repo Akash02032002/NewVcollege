@@ -1,7 +1,7 @@
 <!-- ========================================
      HERO SLIDER SECTION - Main Carousel & Daily Updates
      ======================================== -->
-<div style="margin-bottom: 15px" class="slider">
+<div class="slider">
   <div class="container">
     <div class="row">
       <div class="col-md-8">
