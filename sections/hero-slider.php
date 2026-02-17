@@ -2,9 +2,8 @@
      HERO SLIDER SECTION - Main Carousel & Daily Updates
      ======================================== -->
 <div class="slider">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
+  <div class="slider-layout">
+    <div class="slider-main">
         <div
           id="mainSlider"
           class="carousel slide"
@@ -51,9 +50,9 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-      </div>
+    </div>
 
-      <div class="col-md-4">
+    <div class="slider-sidebar">
         <div class="updates-box">
           <div class="updates-header">DAILY UPDATES</div>
           <div class="updates-content-wrapper">
@@ -103,7 +102,6 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
