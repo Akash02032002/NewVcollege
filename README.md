@@ -1,4 +1,4 @@
-# Top Colleges India - Website Documentation
+# Top Colleges vedantu - Website Documentation
 
 ## 📁 Project Structure
 
