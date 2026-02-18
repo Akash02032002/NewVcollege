@@ -456,5 +456,73 @@ Top Colleges India © 2026
 
 ---
 
-**Last Updated:** February 17, 2026  
-**Version:** 1.0
+## 📋 Application Form (Modal) & Submission Flow
+
+### Form Fields (sections/modals.php)
+
+The "Apply for Admission" modal form (`#contactModal`) collects the following fields:
+
+| Field | Type | Name Attribute | Required | Notes |
+|-------|------|----------------|----------|-------|
+| **College ID** | Hidden | `college_id` | No | Auto-filled via JS when modal opens |
+| **College Name** | Hidden | `college_name` | No | Auto-filled via JS when modal opens |
+| **Full Name** | Text Input | `name` | Yes | Placeholder: "Enter Full Name" |
+| **Email** | Email Input | `email` | Yes | Placeholder: "Enter Email" |
+| **Phone** | Tel Input | `phone` | Yes | Placeholder: "Enter Phone Number" |
+| **State** | Select Dropdown | `state` | Yes | All Indian states & union territories |
+| **Course Interest** | Text Input | `course_interest` | Yes | Placeholder: "Course Interested In" |
+
+### Submission Flow (submit_application.php)
+
+```
+User clicks "Apply Now" on a college card
+   ↓
+Modal opens with college_id & college_name pre-filled
+   ↓
+User fills form → Clicks "Submit Application"
+   ↓
+AJAX POST to submit_application.php
+   ↓
+1. Validate request method (POST only)
+2. Sanitize all inputs via trim()
+3. Validate required fields (name, email, phone)
+4. Email format validation via filter_var()
+5. INSERT into `applications` table (PDO prepared statement)
+6. Return JSON response → SweetAlert success/error popup
+```
+
+### Database Schema (applications table)
+
+```sql
+Table: applications
+├── id (PK, AUTO_INCREMENT)
+├── name (VARCHAR 255, NOT NULL)
+├── email (VARCHAR 255, NOT NULL)
+├── phone (VARCHAR 20, NOT NULL)
+├── state (VARCHAR 100, NULLABLE)
+├── course_interest (VARCHAR 255, NULLABLE)
+├── college_id (VARCHAR 50, NULLABLE)
+├── college_name (VARCHAR 255, NULLABLE)
+├── status (ENUM: pending/reviewed/accepted/rejected, DEFAULT 'pending')
+├── created_at (TIMESTAMP)
+└── updated_at (TIMESTAMP)
+```
+
+### File Relationship
+
+```
+sections/modals.php (Frontend Form)
+        │
+        │  POST (AJAX)
+        ↓
+submit_application.php (Backend Handler)
+        │
+        │  PDO Prepared Statement
+        ↓
+config/database.php → MySQL `applications` table
+```
+
+---
+
+**Last Updated:** February 18, 2026  
+**Version:** 1.1

@@ -43,47 +43,58 @@ if(isset($_POST['register'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        body {background: linear-gradient(135deg, #1d3557, #457b9d); height: 100vh; display:flex; justify-content:center; align-items:center;}
-        .card{border:none; border-radius:15px;}
-        .card-header{background:#1d3557;color:white;text-align:center;border-radius:15px 15px 0 0;}
-        .form-control:focus{box-shadow:none;border-color:#1d3557;}
-        .btn-primary{background:#1d3557; border:none;}
-        .btn-primary:hover{background:#16324f;}
-        .toggle-password{cursor:pointer;}
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html, body { height:100%; overflow:hidden; }
+        body { background:linear-gradient(135deg,#1d3557,#457b9d); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:10px; }
+        .card { border:none; border-radius:15px; max-height:95vh; width:100%; max-width:440px; }
+        .card-header { background:#1d3557; color:white; text-align:center; border-radius:15px 15px 0 0; padding:12px !important; }
+        .card-header h4 { margin:0; font-size:1.15rem; }
+        .card-body { padding:18px 22px !important; }
+        .form-label { font-size:0.82rem; margin-bottom:2px; }
+        .input-group { margin-bottom:0; }
+        .input-group .form-control, .input-group .input-group-text { padding:6px 10px; font-size:0.85rem; }
+        .mb-compact { margin-bottom:10px; }
+        .form-control:focus { box-shadow:none; border-color:#1d3557; }
+        .btn-primary { background:#1d3557; border:none; padding:8px; font-size:0.9rem; }
+        .btn-primary:hover { background:#16324f; }
+        .toggle-password { cursor:pointer; }
+        .alert { padding:8px 12px; font-size:0.85rem; margin-bottom:10px; }
+        .text-center { font-size:0.85rem; }
+        .text-center.mt-3 { margin-top:10px !important; }
+        .text-center.mt-2 { margin-top:6px !important; }
     </style>
 </head>
 <body>
-<div class="col-md-5">
 <div class="card shadow-lg">
-    <div class="card-header p-3"><h4><i class="bi bi-shield-lock"></i> Student Registration</h4></div>
-    <div class="card-body p-4">
+    <div class="card-header"><h4><i class="bi bi-shield-lock"></i> Student Registration</h4></div>
+    <div class="card-body">
 
     <?php if(isset($error)): ?><div class="alert alert-danger"><?php echo $error;?></div><?php endif; ?>
     <?php if(isset($success)): ?><div class="alert alert-success"><?php echo $success;?></div><?php endif; ?>
 
     <form method="POST">
-        <div class="mb-3">
+        <div class="mb-compact">
             <label class="form-label">Full Name</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-person"></i></span>
                 <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-compact">
             <label class="form-label">Mobile Number</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-telephone"></i></span>
                 <input type="text" name="mobile" class="form-control" placeholder="Enter mobile number" required>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-compact">
             <label class="form-label">Email Address</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                 <input type="email" name="email" class="form-control" placeholder="Enter email" required>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-compact">
             <label class="form-label">Password</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
@@ -91,7 +102,7 @@ if(isset($_POST['register'])) {
                 <span class="input-group-text toggle-password" onclick="togglePassword()"><i class="bi bi-eye"></i></span>
             </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-compact">
             <label class="form-label">Confirm Password</label>
             <div class="input-group">
                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
@@ -111,7 +122,6 @@ if(isset($_POST['register'])) {
         </div>
     </form>
     </div>
-</div>
 </div>
 
 <script>
