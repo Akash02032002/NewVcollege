@@ -53,4 +53,17 @@ if ($_POST['action'] === 'delete') {
     exit();
 }
 
+// Delete student
+if ($_POST['action'] === 'delete_student') {
+    $id = intval($_POST['id'] ?? 0);
+    if ($id > 0) {
+        $stmt = $conn->prepare("DELETE FROM students WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        echo json_encode(['success' => true, 'message' => 'Student deleted.']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid ID.']);
+    }
+    exit();
+}
+
 echo json_encode(['success' => false, 'message' => 'Unknown action.']);

@@ -1,13 +1,13 @@
 -- ============================================
 -- Top Colleges India - Database Schema
 -- ============================================
--- Database: college
+-- Database: college2
 -- Created: February 17, 2026
 -- ============================================
 
 -- Create Database (if not exists)
-CREATE DATABASE IF NOT EXISTS `college` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `college`;
+CREATE DATABASE IF NOT EXISTS `college2` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `college2`;
 
 -- ============================================
 -- Students Table
