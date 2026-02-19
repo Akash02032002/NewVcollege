@@ -28,7 +28,13 @@ if(isset($_POST['login'])) {
 
     if($admin && password_verify($password, $admin['password'])) {
         $_SESSION['user'] = $admin['name'];
-        $_SESSION['role'] = "admin";
+        $_SESSION['role'] = $admin['role'] ?? 'admin';
+        $_SESSION['admin_id'] = $admin['id'];
+        $_SESSION['email'] = $admin['email'];
+        $_SESSION['state'] = $admin['state'];
+        $_SESSION['region'] = $admin['region'];
+        $_SESSION['district'] = $admin['district'];
+        $_SESSION['assigned_student_email'] = $admin['assigned_student_email'];
         header("Location: admin/dashboard.php");
         exit();
     }
@@ -55,15 +61,18 @@ if(isset($_POST['login'])) {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .card {
             border: none;
             border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
         }
 
         .card-header {
-            background: #1d3557;
+            background: #dc3545; /* red header */
             color: white;
             text-align: center;
             border-radius: 15px 15px 0 0;
@@ -71,26 +80,36 @@ if(isset($_POST['login'])) {
 
         .form-control:focus {
             box-shadow: none;
-            border-color: #1d3557;
+            border-color: #dc3545;
         }
 
-        .btn-success {
-            background: #1d3557;
+        .btn-primary, .btn-success {
+            background: #dc3545; /* red button */
             border: none;
         }
 
-        .btn-success:hover {
-            background: #16324f;
+        .btn-primary:hover, .btn-success:hover {
+            background: #b02a37;
+        }
+
+        .input-group-text {
+            background: #dc3545; /* red icon background */
+            color: white;
+            border: none;
         }
 
         .toggle-password {
             cursor: pointer;
         }
+
+        @media (max-width:576px){
+            .card-body {padding:20px;}
+        }
     </style>
 </head>
 <body>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <div class="card shadow-lg">
         <div class="card-header p-3">
             <h4><i class="bi bi-box-arrow-in-right"></i> Login</h4>
@@ -131,10 +150,8 @@ if(isset($_POST['login'])) {
                     Don’t have an account? 
                     <a href="register_student.php">Register as Student</a><br>
                     <a href="register_admin.php">Register as Admin</a>
-                </div>                
-                <div class="text-center mt-2">
-                    <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house-door"></i> Home</a>
                 </div>
+
             </form>
         </div>
     </div>

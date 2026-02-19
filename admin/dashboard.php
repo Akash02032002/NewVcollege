@@ -1,14 +1,29 @@
 
 <?php
+
 include "../includes/auth.php";
-// include "../includes/header.php";
+require_login();
 
-if($_SESSION['role'] != "admin") {
-    header("Location: ../login.php");
+$role = $_SESSION['role'] ?? '';
+
+switch($role) {
+    case 'admin':
+        include __DIR__ . '/dashboard_admin.php';
+        break;
+    case 'gm':
+        include __DIR__ . '/dashboard_gm.php';
+        break;
+    case 'agm':
+        include __DIR__ . '/dashboard_agm.php';
+        break;
+    case 'counselor':
+        include __DIR__ . '/dashboard_counselor.php';
+        break;
+    default:
+        // fallback
+        header('Location: ../login.php');
+        exit();
 }
-?>
 
-<h2>Admin Dashboard</h2>
-<p>Welcome <?php echo $_SESSION['user']; ?></p>
-<a href="../logout.php" class="btn btn-danger">Logout</a>
+?>
 

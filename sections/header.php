@@ -38,7 +38,7 @@
               <ul>
                 <li>
                   <a
-                    href="/"
+                    href="index.php"
                     class="btn cl waves-effect waves-light nav-btn nav-btn-red">
                     Home</a>
                 </li>
@@ -56,7 +56,7 @@
                     <li>
                       <a href="login.php">Stuednt Login</a>
                     </li>
-                    <li><a href="/college-list"> Search College</a></li>
+                    <li><a href="sections/search_college.php"> Search College</a></li>
                     <li>
                       <a href="/consultant-list">Search Consultant</a>
                     </li>
@@ -75,7 +75,7 @@
 
                 <li>
                   <a
-                    href="/contact"
+                    href="sections/contact.php"
                     class="btn cl waves-effect waves-light nav-btn nav-btn-red">
                     Contact Us</a>
                 </li>

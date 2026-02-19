@@ -11,17 +11,12 @@
 >
   <div class="modal-dialog" role="document">
     <form
-      action="https://topcolleges.co.in/contact/submit"
+      action="/College/NewVcollege/submit_application.php"
       method="POST"
       class="form-horizontal"
       id="contactForm"
     >
-      <input
-        type="hidden"
-        name="_token"
-        value="iAG5zTQsXRKqZoZZWWmbdmzySweC1fx2Ze2BqD1W"
-        autocomplete="off"
-      />
+      <input type="hidden" name="_token" value="" autocomplete="off" />
       <div class="modal-content">
         <div class="modal-header">
           <button
@@ -84,6 +79,49 @@
               />
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Course</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                name="course_interest"
+                id="applicantCourse"
+                class="form-control"
+                placeholder="Enter Course"
+                required
+                value=""
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">State</label>
+            <div class="col-sm-9">
+              <input
+                type="text"
+                name="state"
+                id="applicantState"
+                class="form-control"
+                placeholder="Enter state"
+                required
+                value=""
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Region (optional)</label>
+            <div class="col-sm-9">
+              <input type="text" name="region" id="applicantRegion" class="form-control" placeholder="Enter region" value="" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label">District (optional)</label>
+            <div class="col-sm-9">
+              <input type="text" name="district" id="applicantDistrict" class="form-control" placeholder="Enter district" value="" />
+            </div>
+          </div>
+
 
           <div class="form-group">
             <label class="col-sm-3 control-label">Message</label>

@@ -38,3 +38,11 @@
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body class="">
+  <?php
+  if(session_status() === PHP_SESSION_NONE) session_start();
+  if(!empty($_SESSION['flash_success'])): ?>
+    <div class="container mt-3"><div class="alert alert-success"><?php echo htmlspecialchars($_SESSION['flash_success']); unset($_SESSION['flash_success']); ?></div></div>
+  <?php endif; ?>
+  <?php if(!empty($_SESSION['flash_error'])): ?>
+    <div class="container mt-3"><div class="alert alert-danger"><?php echo htmlspecialchars($_SESSION['flash_error']); unset($_SESSION['flash_error']); ?></div></div>
+  <?php endif; ?>
