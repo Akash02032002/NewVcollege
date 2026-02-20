@@ -58,6 +58,26 @@ CREATE TABLE IF NOT EXISTS `applications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ============================================
+-- Colleges Table
+-- ============================================
+CREATE TABLE IF NOT EXISTS `colleges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `college_image` varchar(500) DEFAULT NULL,
+  `college_name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `courses` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_college_name` (`college_name`),
+  UNIQUE KEY `unique_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================
 -- Sample Data (Optional - for testing)
 -- ============================================
 -- Password for both test accounts: Admin@123

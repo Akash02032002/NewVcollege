@@ -56,10 +56,6 @@
                     <li>
                       <a href="login.php">Student Login</a>
                     </li>
-                    <!-- <li><a href="/college-list"> Search College</a></li>
-                    <li>
-                      <a href="/consultant-list">Search Consultant</a>
-                    </li> -->
                   </ul>
                 </li>
 
@@ -76,20 +72,10 @@
                     <li>
                       <a href="login.php">College Login</a>
                     </li>
-                    <li><a href="/college-list"> Search College</a></li>
-                    <!-- <li>
-                      <a href="/consultant-list">Search Consultant</a>
-                    </li> -->
+                    <li><a href="college/list.php"> Search College</a></li>
                   </ul>
                 </li>
                 
-                
-                <!-- <li>
-                  <a
-                    href="/colleges"
-                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
-                    Colleges</a>
-                </li> -->
 
                 <li>
                   <a
@@ -101,9 +87,6 @@
                     <li><a href="login.php"> Consultant Login</a></li>
                   </ul>
                 </li>
-
-              
-
               </ul>
             </nav>
           </div>

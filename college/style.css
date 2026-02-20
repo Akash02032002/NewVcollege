@@ -1,0 +1,344 @@
+/* ============================================
+   College Registration & List - Styles
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ---- Registration Page ---- */
+.reg-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.reg-card {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    overflow: hidden;
+    animation: popUp .4s ease-out;
+}
+
+@keyframes popUp {
+    from { opacity: 0; transform: scale(.95) translateY(15px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.reg-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    text-align: center;
+    padding: 20px 20px 16px;
+}
+.reg-header h4 { font-size: 1.15rem; font-weight: 700; margin: 0; }
+.reg-header small { color: #90a4ae; font-size: .78rem; }
+
+.reg-body-inner {
+    padding: 22px 28px 26px;
+}
+
+.reg-body-inner .form-label {
+    font-size: .8rem;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.reg-body-inner .form-control,
+.reg-body-inner .form-select {
+    font-size: .85rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.reg-body-inner .form-control:focus,
+.reg-body-inner .form-select:focus {
+    box-shadow: none;
+    border-color: #1d3557;
+}
+
+.mb-compact { margin-bottom: 12px; }
+
+.btn-register {
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    width: 100%;
+    transition: background .25s;
+}
+.btn-register:hover {
+    background: #16213e;
+    color: #fff;
+}
+
+.img-preview-wrap {
+    text-align: center;
+    margin-bottom: 12px;
+}
+.img-preview {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+    display: none;
+}
+
+/* ---- College List Page ---- */
+.list-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+}
+
+.list-topbar {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+}
+.list-topbar .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.list-topbar .brand-link i { font-size: 1.4rem; color: #4fc3f7; }
+.list-topbar .brand-link span { font-size: 1.1rem; font-weight: 700; color: #fff; }
+.list-topbar .nav-links { display: flex; gap: 10px; }
+.list-topbar .nav-links a {
+    color: #b0bec5;
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all .25s;
+    border: 1px solid rgba(255,255,255,.12);
+}
+.list-topbar .nav-links a:hover {
+    background: rgba(255,255,255,.1);
+    color: #fff;
+}
+.list-topbar .nav-links a.active {
+    background: #4fc3f7;
+    color: #1a1a2e;
+    border-color: #4fc3f7;
+}
+
+.list-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.list-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0;
+}
+.list-header h2 i { color: #4fc3f7; }
+
+.list-search {
+    position: relative;
+    width: 300px;
+}
+.list-search input {
+    width: 100%;
+    padding: 10px 14px 10px 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: .88rem;
+    outline: none;
+    transition: border .3s;
+    background: #fff;
+}
+.list-search input:focus { border-color: #4fc3f7; }
+.list-search i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #90a4ae;
+    font-size: 1rem;
+}
+
+.stat-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+.stat-pill {
+    background: #fff;
+    padding: 10px 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.stat-pill .stat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #fff;
+}
+.stat-pill .stat-icon.blue { background: linear-gradient(135deg, #1565c0, #1e88e5); }
+.stat-pill .stat-num { font-size: 1.3rem; font-weight: 700; color: #1a1a2e; }
+.stat-pill .stat-label { font-size: .72rem; color: #78909c; text-transform: uppercase; letter-spacing: .5px; }
+
+/* Table Card */
+.clg-table-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    overflow: hidden;
+}
+
+.clg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .85rem;
+}
+.clg-table thead th {
+    background: #f5f7fa;
+    padding: 13px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #546e7a;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-bottom: 2px solid #e0e0e0;
+    white-space: nowrap;
+}
+.clg-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #37474f;
+    vertical-align: middle;
+}
+.clg-table tbody tr:hover { background: #f9fbfd; }
+.clg-table tbody tr:last-child td { border-bottom: none; }
+
+.clg-img-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid #e8e8e8;
+    background: #f5f5f5;
+}
+
+.clg-name-cell strong {
+    display: block;
+    font-size: .88rem;
+    color: #1a1a2e;
+}
+
+.course-badges { display: flex; flex-wrap: wrap; gap: 4px; }
+.course-badge {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: .7rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.btn-view-clg {
+    background: transparent;
+    border: 1.5px solid #1565c0;
+    color: #1565c0;
+    padding: 5px 14px;
+    border-radius: 6px;
+    font-size: .78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.btn-view-clg:hover {
+    background: #1565c0;
+    color: #fff;
+}
+
+.empty-state-clg {
+    text-align: center;
+    padding: 60px 20px;
+    color: #90a4ae;
+}
+.empty-state-clg i { font-size: 48px; margin-bottom: 12px; display: block; }
+.empty-state-clg h5 { color: #546e7a; margin-bottom: 5px; }
+
+/* Detail Modal */
+.clg-detail-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.clg-detail-row:last-child { border-bottom: none; }
+.clg-detail-label {
+    width: 130px;
+    font-weight: 600;
+    color: #546e7a;
+    font-size: .82rem;
+    flex-shrink: 0;
+}
+.clg-detail-value {
+    flex: 1;
+    color: #37474f;
+    font-size: .82rem;
+}
+.modal-clg-img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .list-topbar { padding: 14px 16px; }
+    .list-header h2 { font-size: 1.2rem; }
+    .list-search { width: 100%; }
+    .stat-bar { gap: 10px; }
+    .stat-pill { padding: 8px 14px; }
+    .clg-table { font-size: .8rem; }
+    .clg-img-thumb { width: 42px; height: 42px; }
+}
+
+@media (max-width: 480px) {
+    .reg-body-inner { padding: 16px 18px 20px; }
+    .list-topbar .nav-links a { padding: 5px 10px; font-size: .75rem; }
+}
