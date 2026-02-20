@@ -60,20 +60,20 @@ CREATE TABLE IF NOT EXISTS `applications` (
 -- ============================================
 -- Sample Data (Optional - for testing)
 -- ============================================
--- Password for both test accounts: password123
+-- Password for both test accounts: Admin@123
 
 -- Test Admin Account
 -- Email: admin@test.com
--- Password: password123
+-- Password: Admin@123
 INSERT INTO `admins` (`name`, `mobile`, `email`, `password`) VALUES
-('Test Admin', '1234567890', 'admin@test.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi')
+('Test Admin', '1234567890', 'admin@test.com', 'Admin@123')
 ON DUPLICATE KEY UPDATE `name` = `name`;
 
 -- Test Student Account
 -- Email: student@test.com
--- Password: password123
+-- Password: Admin@123
 INSERT INTO `students` (`name`, `mobile`, `email`, `password`) VALUES
-('Test Student', '0987654321', 'student@test.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi')
+('Test Student', '0987654321', 'student@test.com', 'Admin@123')
 ON DUPLICATE KEY UPDATE `name` = `name`;
 
 -- ============================================

@@ -36,6 +36,9 @@ $totalStudents = count($students);
             <a href="dashboard.php" class="nav-link">
                 <i class="bi bi-grid-1x2-fill"></i> Dashboard
             </a>
+            <a href="enquiry.php" class="nav-link">
+                <i class="bi bi-envelope-open-fill"></i> Enquiry
+            </a>
             <a href="students.php" class="nav-link active">
                 <i class="bi bi-people-fill"></i> Students
             </a>
@@ -169,20 +172,22 @@ $totalStudents = count($students);
         function deleteStudent(id) {
             if (!confirm("Are you sure you want to delete this student?")) return;
             fetch("index.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: "action=delete_student&id=" + id,
-            })
-            .then((r) => r.json())
-            .then((data) => {
-                if (data.success) {
-                    const row = document.getElementById("stu-row-" + id);
-                    if (row) row.remove();
-                    showToast("Student deleted.", "success");
-                } else {
-                    showToast(data.message, "danger");
-                }
-            });
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "action=delete_student&id=" + id,
+                })
+                .then((r) => r.json())
+                .then((data) => {
+                    if (data.success) {
+                        const row = document.getElementById("stu-row-" + id);
+                        if (row) row.remove();
+                        showToast("Student deleted.", "success");
+                    } else {
+                        showToast(data.message, "danger");
+                    }
+                });
         }
 
         function escHtml(str) {

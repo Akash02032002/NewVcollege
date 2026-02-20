@@ -66,4 +66,51 @@ if ($_POST['action'] === 'delete_student') {
     exit();
 }
 
+// Delete user (from Dashboard - any role)
+if ($_POST['action'] === 'delete_user') {
+    $id   = intval($_POST['id'] ?? 0);
+    $role = trim($_POST['role'] ?? '');
+    $tableMap = ['Admin' => 'admins', 'Student' => 'students', 'Enquiry' => 'applications'];
+    if ($id > 0 && isset($tableMap[$role])) {
+        $table = $tableMap[$role];
+        $stmt = $conn->prepare("DELETE FROM `$table` WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        echo json_encode(['success' => true, 'message' => $role . ' deleted.']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid data.']);
+    }
+    exit();
+}
+
+// Update user (from Dashboard - any role)
+if ($_POST['action'] === 'update_user') {
+    $id       = intval($_POST['id'] ?? 0);
+    $role     = trim($_POST['role'] ?? '');
+    $name     = trim($_POST['name'] ?? '');
+    $mobile   = trim($_POST['mobile'] ?? '');
+    $email    = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $tableMap = ['Admin' => 'admins', 'Student' => 'students', 'Enquiry' => 'applications'];
+
+    if ($id > 0 && isset($tableMap[$role]) && $name && $email) {
+        $table = $tableMap[$role];
+        if ($role === 'Enquiry') {
+            $stmt = $conn->prepare("UPDATE `$table` SET name = :name, phone = :mobile, email = :email WHERE id = :id");
+            $stmt->execute([':name' => $name, ':mobile' => $mobile, ':email' => $email, ':id' => $id]);
+        } else {
+            if ($password !== '') {
+                $stmt = $conn->prepare("UPDATE `$table` SET name = :name, mobile = :mobile, email = :email, password = :password WHERE id = :id");
+                $stmt->execute([':name' => $name, ':mobile' => $mobile, ':email' => $email, ':password' => $password, ':id' => $id]);
+            } else {
+                $stmt = $conn->prepare("UPDATE `$table` SET name = :name, mobile = :mobile, email = :email WHERE id = :id");
+                $stmt->execute([':name' => $name, ':mobile' => $mobile, ':email' => $email, ':id' => $id]);
+            }
+        }
+        echo json_encode(['success' => true, 'message' => $role . ' updated.']);
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Invalid data.']);
+    }
+    exit();
+}
+
 echo json_encode(['success' => false, 'message' => 'Unknown action.']);

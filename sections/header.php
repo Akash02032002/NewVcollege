@@ -54,14 +54,43 @@
                         Student Register</a>
                     </li>
                     <li>
-                      <a href="login.php">Stuednt Login</a>
+                      <a href="login.php">Student Login</a>
                     </li>
-                    <li><a href="/college-list"> Search College</a></li>
+                    <!-- <li><a href="/college-list"> Search College</a></li>
                     <li>
                       <a href="/consultant-list">Search Consultant</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </li>
+
+                <li>
+                  <a
+                    href="#"
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-gradient">
+                    College Portal</a>
+                  <ul>
+                    <li>
+                      <a href="register_college.php">
+                        College Register</a>
+                    </li>
+                    <li>
+                      <a href="login.php">College Login</a>
+                    </li>
+                    <li><a href="/college-list"> Search College</a></li>
+                    <!-- <li>
+                      <a href="/consultant-list">Search Consultant</a>
+                    </li> -->
+                  </ul>
+                </li>
+                
+                
+                <!-- <li>
+                  <a
+                    href="/colleges"
+                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
+                    Colleges</a>
+                </li> -->
+
                 <li>
                   <a
                     href="#"
@@ -73,12 +102,8 @@
                   </ul>
                 </li>
 
-                <li>
-                  <a
-                    href="/contact"
-                    class="btn cl waves-effect waves-light nav-btn nav-btn-red">
-                    Contact Us</a>
-                </li>
+              
+
               </ul>
             </nav>
           </div>

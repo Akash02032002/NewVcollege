@@ -3,7 +3,7 @@ include "config/database.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if(isset($_POST['register'])) {
+if (isset($_POST['register'])) {
 
     $name = trim($_POST['name']);
     $mobile = trim($_POST['mobile']);
@@ -12,23 +12,22 @@ if(isset($_POST['register'])) {
     $confirm_password = $_POST['confirm_password'];
 
     // Check if passwords match
-    if($password !== $confirm_password){
+    if ($password !== $confirm_password) {
         $error = "Passwords do not match!";
     } else {
         // Optional: check email already exists
         $check = $conn->prepare("SELECT id FROM students WHERE email = :email");
-        $check->execute([':email'=>$email]);
-        if($check->rowCount() > 0){
+        $check->execute([':email' => $email]);
+        if ($check->rowCount() > 0) {
             $error = "Email already registered!";
         } else {
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO students (name, mobile, email, password) VALUES (:name, :mobile, :email, :password)";
             $stmt = $conn->prepare($sql);
             $stmt->execute([
-                ':name'=>$name,
-                ':mobile'=>$mobile,
-                ':email'=>$email,
-                ':password'=>$hashed_password
+                ':name' => $name,
+                ':mobile' => $mobile,
+                ':email' => $email,
+                ':password' => $password
             ]);
             $success = "Student Registered Successfully!";
         }
@@ -38,101 +37,190 @@ if(isset($_POST['register'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Student Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html, body { height:100%; overflow:hidden; }
-        body { background:linear-gradient(135deg,#1d3557,#457b9d); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:10px; }
-        .card { border:none; border-radius:15px; max-height:95vh; width:100%; max-width:440px; }
-        .card-header { background:#1d3557; color:white; text-align:center; border-radius:15px 15px 0 0; padding:12px !important; }
-        .card-header h4 { margin:0; font-size:1.15rem; }
-        .card-body { padding:18px 22px !important; }
-        .form-label { font-size:0.82rem; margin-bottom:2px; }
-        .input-group { margin-bottom:0; }
-        .input-group .form-control, .input-group .input-group-text { padding:6px 10px; font-size:0.85rem; }
-        .mb-compact { margin-bottom:10px; }
-        .form-control:focus { box-shadow:none; border-color:#1d3557; }
-        .btn-primary { background:#1d3557; border:none; padding:8px; font-size:0.9rem; }
-        .btn-primary:hover { background:#16324f; }
-        .toggle-password { cursor:pointer; }
-        .alert { padding:8px 12px; font-size:0.85rem; margin-bottom:10px; }
-        .text-center { font-size:0.85rem; }
-        .text-center.mt-3 { margin-top:10px !important; }
-        .text-center.mt-2 { margin-top:6px !important; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            max-height: 95vh;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .card-header {
+            background: #1d3557;
+            color: white;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            padding: 12px !important;
+        }
+
+        .card-header h4 {
+            margin: 0;
+            font-size: 1.15rem;
+        }
+
+        .card-body {
+            padding: 18px 22px !important;
+        }
+
+        .form-label {
+            font-size: 0.82rem;
+            margin-bottom: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 0;
+        }
+
+        .input-group .form-control,
+        .input-group .input-group-text {
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+
+        .mb-compact {
+            margin-bottom: 10px;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #1d3557;
+        }
+
+        .btn-primary {
+            background: #1d3557;
+            border: none;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary:hover {
+            background: #16324f;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+        }
+
+        .alert {
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .text-center {
+            font-size: 0.85rem;
+        }
+
+        .text-center.mt-3 {
+            margin-top: 10px !important;
+        }
+
+        .text-center.mt-2 {
+            margin-top: 6px !important;
+        }
     </style>
 </head>
+
 <body>
-<div class="card shadow-lg">
-    <div class="card-header"><h4><i class="bi bi-shield-lock"></i> Student Registration</h4></div>
-    <div class="card-body">
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h4><i class="bi bi-shield-lock"></i> Student Registration</h4>
+        </div>
+        <div class="card-body">
 
-    <?php if(isset($error)): ?><div class="alert alert-danger"><?php echo $error;?></div><?php endif; ?>
-    <?php if(isset($success)): ?><div class="alert alert-success"><?php echo $success;?></div><?php endif; ?>
+            <?php if (isset($error)): ?><div class="alert alert-danger"><?php echo $error; ?></div><?php endif; ?>
+            <?php if (isset($success)): ?><div class="alert alert-success"><?php echo $success; ?></div><?php endif; ?>
 
-    <form method="POST">
-        <div class="mb-compact">
-            <label class="form-label">Full Name</label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-person"></i></span>
-                <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
-            </div>
-        </div>
-        <div class="mb-compact">
-            <label class="form-label">Mobile Number</label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                <input type="text" name="mobile" class="form-control" placeholder="Enter mobile number" required>
-            </div>
-        </div>
-        <div class="mb-compact">
-            <label class="form-label">Email Address</label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                <input type="email" name="email" class="form-control" placeholder="Enter email" required>
-            </div>
-        </div>
-        <div class="mb-compact">
-            <label class="form-label">Password</label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
-                <span class="input-group-text toggle-password" onclick="togglePassword()"><i class="bi bi-eye"></i></span>
-            </div>
-        </div>
-        <div class="mb-compact">
-            <label class="form-label">Confirm Password</label>
-            <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm password" required>
-                <span class="input-group-text toggle-password" onclick="toggleConfirmPassword()"><i class="bi bi-eye"></i></span>
-            </div>
-        </div>
+            <form method="POST">
+                <div class="mb-compact">
+                    <label class="form-label">Full Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" name="name" class="form-control" placeholder="Enter full name" required>
+                    </div>
+                </div>
+                <div class="mb-compact">
+                    <label class="form-label">Mobile Number</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                        <input type="text" name="mobile" class="form-control" placeholder="Enter mobile number" required>
+                    </div>
+                </div>
+                <div class="mb-compact">
+                    <label class="form-label">Email Address</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="email" class="form-control" placeholder="Enter email" required>
+                    </div>
+                </div>
+                <div class="mb-compact">
+                    <label class="form-label">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
+                        <span class="input-group-text toggle-password" onclick="togglePassword()"><i class="bi bi-eye"></i></span>
+                    </div>
+                </div>
+                <div class="mb-compact">
+                    <label class="form-label">Confirm Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm password" required>
+                        <span class="input-group-text toggle-password" onclick="toggleConfirmPassword()"><i class="bi bi-eye"></i></span>
+                    </div>
+                </div>
 
-        <button type="submit" name="register" class="btn btn-primary w-100"><i class="bi bi-person-plus"></i> Register</button>
+                <button type="submit" name="register" class="btn btn-primary w-100"><i class="bi bi-person-plus"></i> Register</button>
 
-        <div class="text-center mt-3">
-            Already have an account? <a href="login.php">Login</a>
+                <div class="text-center mt-3">
+                    Already have an account? <a href="login.php">Login</a>
+                </div>
+
+                <div class="text-center mt-2">
+                    <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house-door"></i> Home</a>
+                </div>
+            </form>
         </div>
-        
-        <div class="text-center mt-2">
-            <a href="index.php" class="btn btn-outline-secondary btn-sm"><i class="bi bi-house-door"></i> Home</a>
-        </div>
-    </form>
     </div>
-</div>
 
-<script>
-function togglePassword() {
-    const password = document.getElementById("password");
-    password.type = password.type === "password" ? "text" : "password";
-}
-function toggleConfirmPassword() {
-    const confirmPassword = document.getElementById("confirm_password");
-    confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
-}
-</script>
+    <script>
+        function togglePassword() {
+            const password = document.getElementById("password");
+            password.type = password.type === "password" ? "text" : "password";
+        }
+
+        function toggleConfirmPassword() {
+            const confirmPassword = document.getElementById("confirm_password");
+            confirmPassword.type = confirmPassword.type === "password" ? "text" : "password";
+        }
+    </script>
 </body>
+
 </html>
