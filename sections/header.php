@@ -75,7 +75,7 @@
                     <li><a href="college/list.php"> Search College</a></li>
                   </ul>
                 </li>
-                
+
 
                 <li>
                   <a
